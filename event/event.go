@@ -22,12 +22,28 @@ func MoveItem(item string) {
 	} else if bItem == "_" {
 		// hvis båt er empty (utenom mann)
 		// putt item i båt
+		//men bare hvis båten er der for å plukke dem opp!
 		if item == "Kylling" {
-			ky = 1
+			if ky == bo { //er kylling og båt på samme side?
+				ky = 1
+			} else {
+				tooFar(item)
+				return
+			}
 		} else if item == "Rev" {
-			re = 1
+			if re == bo {
+				re = 1
+			} else {
+				tooFar(item)
+				return
+			}
 		} else if item == "Korn" {
-			ko = 1
+			if re == bo {
+				ko = 1
+			} else {
+				tooFar(item)
+				return
+			}
 		} else {
 			fmt.Println(item, "er ikke gjenkjent. Prøv igjen.")
 			return
@@ -90,4 +106,9 @@ func Cross() string {
 	} else {
 		return "noError"
 	}
+}
+
+// Print hvis item er på feil side relativt til båten.
+func tooFar(item string) {
+	fmt.Println(item, "er dessverre på feil side. Prøv noe annet.")
 }

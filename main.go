@@ -35,9 +35,7 @@ func GetInput() {
 
 func response(input string) {
 	gState := ""
-	// stop := false
-	if input == "Stopp" {
-		// stop = true
+	if input == "Stopp" || input == "Stop" {
 		return
 	} else if input == "Hjelp" {
 		fmt.Println(" Stopp | stopper spillet.")

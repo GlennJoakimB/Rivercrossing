@@ -9,8 +9,9 @@ import (
 func TestMoveItem(t *testing.T) {
 	state.ViewState(2, 0, 2, 1, 2)
 
-	MoveItem("Kylling")
 	wanted := "Kylling"
+	MoveItem(wanted)
+
 	bItem := state.GetBoatItem()
 
 	if bItem != wanted {
